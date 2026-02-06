@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Kevin 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 30px;
+  text-align: center;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.1rem;
+  max-width: 650px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 14px 26px;
+  border-radius: 30px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.options button {
+  display: block;
+  margin: 10px auto;
+  width: 85%;
+  max-width: 300px;
+}
+
+.bouquet {
+  font-size: 5rem;
+  margin: 20px 0;
+}
+
+#secret {
+  display: none;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.4);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+#answers {
+  text-align: left;
+  max-width: 500px;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <h1>🎂 Happy Birthday Kevin! 🎉</h1>
+  <p>This little journey is just for you. Ready?</p>
+  <button onclick="next()">Start 🚀</button>
+</div>
+
+<!-- 4 QUESTIONS ABOUT KEVIN -->
+<div class="page">
+  <h1>Question 1 😎</h1>
+  <p>How are you feeling today?</p>
+  <div class="options">
+    <button onclick="answer('Feeling: Grateful')">Grateful</button>
+    <button onclick="answer('Feeling: Happy')">Happy</button>
+    <button onclick="answer('Feeling: All of the above')">All of the above</button>
+  </div>
+</div>
+
+<div class="page">
+  <h1>Question 2 🎉</h1>
+  <p>Your birthday vibe?</p>
+  <div class="options">
+    <button onclick="answer('Vibe: Main character energy')">Main character energy</button>
+    <button onclick="answer('Vibe: Chill but smiling')">Chill but smiling</button>
+    <button onclick="answer('Vibe: Ready to celebrate')">Ready to celebrate</button>
+  </div>
+</div>
+
+<div class="page">
+  <h1>Question 3 🔥</h1>
+  <p>One thing you deserve more of this year?</p>
+  <div class="options">
+    <button onclick="answer('Deserve: Peace')">Peace</button>
+    <button onclick="answer('Deserve: Success')">Success</button>
+    <button onclick="answer('Deserve: Love & adventures')">Love & adventures</button>
+  </div>
+</div>
+
+<div class="page">
+  <h1>Question 4 💭</h1>
+  <p>Which word fits you right now?</p>
+  <div class="options">
+    <button onclick="answer('Word: Growing')">Growing</button>
+    <button onclick="answer('Word: Learning')">Learning</button>
+    <button onclick="answer('Word: Becoming better')">Becoming better</button>
+  </div>
+</div>
+
+<!-- 3 QUESTIONS ABOUT YOU -->
+<div class="page">
+  <h1>Question 5 👀</h1>
+  <p>Be honest… am I a good friend?</p>
+  <div class="options">
+    <button onclick="answer('Good friend: Yes, always 🤍')">Yes, always 🤍</button>
+    <button onclick="answer('Good friend: Without a doubt')">Without a doubt</button>
+    <button onclick="answer('Good friend: I appreciate you')">I appreciate you</button>
+  </div>
+</div>
+
+<div class="page">
+  <h1>Question 6 😅</h1>
+  <p>Do I ever feel annoying?</p>
+  <div class="options">
+    <button onclick="answer('Annoying: Never')">Never</button>
+    <button onclick="answer('Annoying: Only in a funny way')">Only in a funny way</button>
+    <button onclick="answer('Annoying: That’s part of you')">That’s part of you</button>
+  </div>
+</div>
+
+<div class="page">
+  <h1>Question 7 🫶</h1>
+  <p>What do I bring into your life?</p>
+  <div class="options">
+    <button onclick="answer('Brings: Support')">Support</button>
+    <button onclick="answer('Brings: Laughter')">Laughter</button>
+    <button onclick="answer('Brings: Comfort & chaos 😄')">Comfort & chaos 😄</button>
+  </div>
+</div>
+
+<!-- TRICKY QUESTION -->
+<div class="page">
+  <h1>Question 8 🤯</h1>
+  <p>
+    If this is your birthday,  
+    and these questions are about both of us,  
+    and the next page is a surprise…
+    <br><br>
+    What are you supposed to feel right now?
+  </p>
+  <div class="options">
+    <button onclick="answer('Feeling now: Confused')">Confused</button>
+    <button onclick="answer('Feeling now: Smiling')">Smiling</button>
+    <button onclick="answer('Feeling now: Everything at once 😵‍💫')">Everything at once 😵‍💫</button>
+  </div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page">
+  <h1>💐 This Is For You, Kevin 💐</h1>
+  <div class="bouquet">💐💐💐</div>
+
+  <p>
+    Wherever you go, you radiate positivity and warmth.
+    Your presence makes the world brighter, and your kindness
+    leaves a mark on everyone around you.
+  </p>
+
+  <button onclick="showSecret()">Reveal Secret Message 💌</button>
+
+  <p id="secret">
+    Kevin, I hope you always know how much you matter.
+    You’re appreciated more than you realize, and having you
+    in my life truly means a lot to me. Thank you for being you —
+    for the laughs, the support, and the moments that make
+    everything feel lighter. I’m really glad you’re here. ❤️
+  </p>
+
+  <h3>👀 Here’s what you clicked:</h3>
+  <ul id="answers"></ul>
+
+  <button onclick="confetti()">Celebrate 🎊</button>
+</div>
+
+<script>
+let pages = document.querySelectorAll(".page");
+let index = 0;
+let answers = [];
+
+function answer(choice) {
+  answers.push(choice);
+  next();
+}
+
+function next() {
+  pages[index].classList.remove("active");
+  index++;
+  pages[index].classList.add("active");
+}
+
+function showSecret() {
+  document.getElementById("secret").style.display = "block";
+
+  const list = document.getElementById("answers");
+  list.innerHTML = "";
+  answers.forEach(a => {
+    const li = document.createElement("li");
+    li.textContent = a;
+    list.appendChild(li);
+  });
+}
+
+/* CONFETTI */
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let conf = [];
+
+function confetti() {
+  conf = [];
+  for (let i = 0; i < 120; i++) {
+    conf.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * 3 + 2,
+      c: `hsl(${Math.random()*360},100%,50%)`
+    });
+  }
+  animate();
+}
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  conf.forEach(p => {
+    ctx.beginPath();
+    ctx.fillStyle = p.c;
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fill();
+    p.y += p.d;
+    if (p.y > canvas.height) p.y = 0;
+  });
+  requestAnimationFrame(animate);
+}
+</script>
+
+</body>
+</html>
